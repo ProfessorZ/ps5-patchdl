@@ -383,7 +383,7 @@ static const char config_tail_json[] =
   "\"source_policy\":{"
   "\"official\":{\"allow_check\":true,\"allow_download\":true,\"allow_install\":true},"
   "\"external\":{\"allow_check\":true,\"allow_download\":true,\"allow_install\":true},"
-  "\"shadowmount\":{\"allow_check\":true,\"allow_download\":false,\"allow_install\":false},"
+  "\"shadowmount\":{\"allow_check\":true,\"allow_download\":true,\"allow_install\":false},"
   "\"unknown\":{\"allow_check\":true,\"allow_download\":false,\"allow_install\":false},"
   "\"fake\":{\"allow_check\":true,\"allow_download\":false,\"allow_install\":false}"
   "},"
@@ -1343,10 +1343,8 @@ manual_pending(const patchdl_title_t *t) {
 static const char *
 title_status_str(const patchdl_title_t *t) {
     if (!t->verxml_done)                          return "checking";
-    /* a mounted image can't take a patch, same as fake */
     if (t->source_type == PATCHDL_SOURCE_UNKNOWN ||
-        t->source_type == PATCHDL_SOURCE_FAKE ||
-        t->source_type == PATCHDL_SOURCE_SHADOWMOUNT) return "blocked";
+        t->source_type == PATCHDL_SOURCE_FAKE) return "blocked";
     if (t->compatible_version[0]) {
         /* versions are zero-padded (01.000.011), strcmp orders them */
         if (t->installed_version[0] &&
@@ -1371,7 +1369,7 @@ title_status_str(const patchdl_title_t *t) {
 static const char *
 title_mode_str(patchdl_source_t src) {
     switch (src) {
-    case PATCHDL_SOURCE_SHADOWMOUNT: return "disabled";
+    case PATCHDL_SOURCE_SHADOWMOUNT: return "download_only";
     case PATCHDL_SOURCE_UNKNOWN:     return "disabled";
     case PATCHDL_SOURCE_FAKE:        return "disabled";
     default:                          return "latest_compatible";
@@ -2695,9 +2693,6 @@ do_download_locked(struct MHD_Connection *conn, const char *title_id,
     if (src == PATCHDL_SOURCE_FAKE)
         return queue_json(conn, MHD_HTTP_FORBIDDEN,
                           "{\"ok\":false,\"reason\":\"source_fake\"}");
-    if (src == PATCHDL_SOURCE_SHADOWMOUNT)
-        return queue_json(conn, MHD_HTTP_FORBIDDEN,
-                          "{\"ok\":false,\"reason\":\"source_shadowmount\"}");
     if (!patch_url[0])
         return queue_json(conn, MHD_HTTP_CONFLICT,
                           "{\"ok\":false,\"reason\":\"no_compatible_patch\"}");
@@ -4406,8 +4401,7 @@ handle_download_url(struct MHD_Connection *conn, const char *body) {
     if (!en && title_sideloaded(tid))
         return queue_json(conn, MHD_HTTP_FORBIDDEN,
             "{\"ok\":false,\"reason\":\"title_disabled\"}");
-    if (src == PATCHDL_SOURCE_UNKNOWN || src == PATCHDL_SOURCE_FAKE ||
-        src == PATCHDL_SOURCE_SHADOWMOUNT)
+    if (src == PATCHDL_SOURCE_UNKNOWN || src == PATCHDL_SOURCE_FAKE)
         return queue_json(conn, MHD_HTTP_FORBIDDEN,
             "{\"ok\":false,\"reason\":\"source_not_supported\"}");
 

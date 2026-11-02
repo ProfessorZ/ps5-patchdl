@@ -215,7 +215,7 @@ const I18N = {
     "source.external": "External",
     "source.external.desc": "Real external installation",
     "source.shadowmount": "Shadowmount",
-    "source.shadowmount.desc": "Not supported",
+    "source.shadowmount.desc": "Download only; installation into mounted images is not supported.",
     "source.unknown": "Unknown",
     "source.unknown.desc": "Blocked",
     "source.fake": "Fake package",
@@ -359,6 +359,7 @@ const I18N = {
     "guide.note.paused": "Paused on your PS5.",
     "guide.note.doneInstall": "Downloaded. Your PS5 installs it now.",
     "guide.note.doneManual": "Downloaded. Press Install on the game in PatchDL.",
+    "guide.note.doneDownload": "Downloaded. The package is in your download folder; installation into mounted images is not supported.",
     "guide.note.error": "The download stopped. Resume it from the game in PatchDL.",
   },
 };
@@ -566,7 +567,7 @@ I18N["de"] = {
   "source.external": "Extern",
   "source.external.desc": "Echte externe Installation",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "Nicht unterstützt",
+  "source.shadowmount.desc": "Nur Download; Installation in eingebundene Images wird nicht unterstützt.",
   "source.unknown": "Unbekannt",
   "source.unknown.desc": "Blockiert",
   "source.fake": "Fake-Paket",
@@ -703,6 +704,7 @@ I18N["de"] = {
   "guide.note.paused": "Auf deiner PS5 pausiert.",
   "guide.note.doneInstall": "Heruntergeladen. Deine PS5 installiert den Patch jetzt.",
   "guide.note.doneManual": "Heruntergeladen. Tippe in PatchDL beim Spiel auf „Installieren“.",
+  "guide.note.doneDownload": "Heruntergeladen. Das Paket liegt im Downloadordner; Installation in eingebundene Images wird nicht unterstützt.",
   "guide.note.error": "Der Download wurde unterbrochen. Setze ihn in PatchDL beim Spiel fort.",
   "reason.notOrbisLink": "Das ist kein Link von Orbis Patches. Tippe dort auf „Copy all links!“ und füge den kopierten Text hier ein."
 };
@@ -910,7 +912,7 @@ I18N["fr"] = {
   "source.external": "Externe",
   "source.external.desc": "Véritable installation externe",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "Non pris en charge",
+  "source.shadowmount.desc": "Téléchargement uniquement ; installation dans les images montées non prise en charge.",
   "source.unknown": "Inconnue",
   "source.unknown.desc": "Bloquée",
   "source.fake": "Faux paquet",
@@ -1047,6 +1049,7 @@ I18N["fr"] = {
   "guide.note.paused": "En pause sur votre PS5.",
   "guide.note.doneInstall": "Téléchargé. Votre PS5 l'installe maintenant.",
   "guide.note.doneManual": "Téléchargé. Appuyez sur Installer pour ce jeu dans PatchDL.",
+  "guide.note.doneDownload": "Téléchargé dans votre dossier de téléchargement. L'installation dans les images montées n'est pas prise en charge.",
   "guide.note.error": "Le téléchargement s'est arrêté. Reprenez-le depuis le jeu dans PatchDL.",
   "reason.notOrbisLink": "Ce n'est pas un lien d'Orbis Patches. Appuyez sur « Copy all links! » sur le site et collez ce qui a été copié."
 };
@@ -1254,7 +1257,7 @@ I18N["es"] = {
   "source.external": "Externa",
   "source.external.desc": "Instalación externa real",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "No compatible",
+  "source.shadowmount.desc": "Solo descarga; no se admite la instalación en imágenes montadas.",
   "source.unknown": "Desconocida",
   "source.unknown.desc": "Bloqueada",
   "source.fake": "Paquete falso",
@@ -1391,6 +1394,7 @@ I18N["es"] = {
   "guide.note.paused": "En pausa en tu PS5.",
   "guide.note.doneInstall": "Descargado. Tu PS5 lo está instalando ahora.",
   "guide.note.doneManual": "Descargado. Pulsa Instalar en el juego dentro de PatchDL.",
+  "guide.note.doneDownload": "Descargado en tu carpeta de descargas. No se admite la instalación en imágenes montadas.",
   "guide.note.error": "La descarga se detuvo. Reanúdala desde el juego en PatchDL.",
   "reason.notOrbisLink": "Ese no es un enlace de Orbis Patches. Pulsa «Copy all links!» en la web y pega lo que se copie."
 };
@@ -1598,7 +1602,7 @@ I18N["it"] = {
   "source.external": "Esterna",
   "source.external.desc": "Installazione esterna reale",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "Non supportato",
+  "source.shadowmount.desc": "Solo download; installazione nelle immagini montate non supportata.",
   "source.unknown": "Sconosciuta",
   "source.unknown.desc": "Bloccata",
   "source.fake": "Pacchetto fake",
@@ -1735,6 +1739,7 @@ I18N["it"] = {
   "guide.note.paused": "In pausa sulla PS5.",
   "guide.note.doneInstall": "Scaricato. La PS5 lo sta installando.",
   "guide.note.doneManual": "Scaricato. Premi Installa sul gioco in PatchDL.",
+  "guide.note.doneDownload": "Scaricato nella cartella dei download. L'installazione nelle immagini montate non è supportata.",
   "guide.note.error": "Il download si è interrotto. Riprendilo dal gioco in PatchDL.",
   "reason.notOrbisLink": "Questo non è un link di Orbis Patches. Premi «Copy all links!» sul sito e incolla ciò che viene copiato."
 };
@@ -1942,7 +1947,7 @@ I18N["pt-BR"] = {
   "source.external": "Externa",
   "source.external.desc": "Instalação externa real",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "Sem suporte",
+  "source.shadowmount.desc": "Somente download; instalação em imagens montadas não suportada.",
   "source.unknown": "Desconhecida",
   "source.unknown.desc": "Bloqueada",
   "source.fake": "Pacote fake",
@@ -2079,6 +2084,7 @@ I18N["pt-BR"] = {
   "guide.note.paused": "Pausado no seu PS5.",
   "guide.note.doneInstall": "Baixado. Seu PS5 está instalando agora.",
   "guide.note.doneManual": "Baixado. Toque em Instalar no jogo dentro do PatchDL.",
+  "guide.note.doneDownload": "Baixado na pasta de downloads. A instalação em imagens montadas não é suportada.",
   "guide.note.error": "O download parou. Retome-o pelo jogo no PatchDL.",
   "reason.notOrbisLink": "Esse não é um link do Orbis Patches. Toque em “Copy all links!” no site e cole o que for copiado."
 };
@@ -2286,7 +2292,7 @@ I18N["ja"] = {
   "source.external": "外部",
   "source.external.desc": "拡張ストレージへの実インストール",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "非対応",
+  "source.shadowmount.desc": "ダウンロードのみ。マウントされたイメージへのインストールには対応していません。",
   "source.unknown": "不明",
   "source.unknown.desc": "ブロック",
   "source.fake": "フェイクパッケージ",
@@ -2423,6 +2429,7 @@ I18N["ja"] = {
   "guide.note.paused": "PS5 で一時停止中です。",
   "guide.note.doneInstall": "ダウンロードしました。PS5 がインストールを開始します。",
   "guide.note.doneManual": "ダウンロードしました。PatchDL でゲームの「インストール」を押してください。",
+  "guide.note.doneDownload": "ダウンロードフォルダーに保存しました。マウントされたイメージへのインストールには対応していません。",
   "guide.note.error": "ダウンロードが停止しました。PatchDL のゲームから再開してください。",
   "reason.notOrbisLink": "Orbis Patches のリンクではありません。サイトで「Copy all links!」を押し、コピーした内容を貼り付けてください。"
 };
@@ -2630,7 +2637,7 @@ I18N["zh-Hans"] = {
   "source.external": "外部",
   "source.external.desc": "实际安装在扩展存储上",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "不支持",
+  "source.shadowmount.desc": "仅支持下载；不支持安装到已挂载的镜像。",
   "source.unknown": "未知",
   "source.unknown.desc": "已阻止",
   "source.fake": "伪造安装包",
@@ -2767,6 +2774,7 @@ I18N["zh-Hans"] = {
   "guide.note.paused": "已在 PS5 上暂停。",
   "guide.note.doneInstall": "下载完成。PS5 现在开始安装。",
   "guide.note.doneManual": "下载完成。请在 PatchDL 中对该游戏按“安装”。",
+  "guide.note.doneDownload": "已保存到下载文件夹。不支持安装到已挂载的镜像。",
   "guide.note.error": "下载已停止。请在 PatchDL 中从该游戏处继续下载。",
   "reason.notOrbisLink": "这不是 Orbis Patches 的链接。请在网站上点击“Copy all links!”，然后粘贴复制的内容。"
 };
@@ -2974,7 +2982,7 @@ I18N["ko"] = {
   "source.external": "외부",
   "source.external.desc": "확장 저장 공간에 실제 설치",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "지원되지 않음",
+  "source.shadowmount.desc": "다운로드만 지원하며 마운트된 이미지에는 설치할 수 없습니다.",
   "source.unknown": "알 수 없음",
   "source.unknown.desc": "차단됨",
   "source.fake": "가짜 패키지",
@@ -3111,6 +3119,7 @@ I18N["ko"] = {
   "guide.note.paused": "PS5에서 일시 정지되었습니다.",
   "guide.note.doneInstall": "다운로드했습니다. 이제 PS5가 설치합니다.",
   "guide.note.doneManual": "다운로드했습니다. PatchDL에서 해당 게임의 [설치]를 누르세요.",
+  "guide.note.doneDownload": "다운로드 폴더에 저장했습니다. 마운트된 이미지에는 설치할 수 없습니다.",
   "guide.note.error": "다운로드가 중지되었습니다. PatchDL의 해당 게임에서 재개하세요.",
   "reason.notOrbisLink": "Orbis Patches 링크가 아닙니다. 사이트에서 'Copy all links!'를 누른 뒤 복사된 내용을 붙여 넣으세요."
 };
@@ -3318,7 +3327,7 @@ I18N["ru"] = {
   "source.external": "Внешний",
   "source.external.desc": "Настоящая внешняя установка",
   "source.shadowmount": "Shadowmount",
-  "source.shadowmount.desc": "Не поддерживается",
+  "source.shadowmount.desc": "Только скачивание; установка в смонтированные образы не поддерживается.",
   "source.unknown": "Неизвестный",
   "source.unknown.desc": "Заблокирован",
   "source.fake": "Fake-пакет",
@@ -3455,6 +3464,7 @@ I18N["ru"] = {
   "guide.note.paused": "Приостановлено на PS5.",
   "guide.note.doneInstall": "Скачано. PS5 сейчас устанавливает обновление.",
   "guide.note.doneManual": "Скачано. Нажмите «Установить» у игры в PatchDL.",
+  "guide.note.doneDownload": "Сохранено в папке загрузок. Установка в смонтированные образы не поддерживается.",
   "guide.note.error": "Загрузка остановилась. Продолжите её из карточки игры в PatchDL.",
   "reason.notOrbisLink": "Это не ссылка с Orbis Patches. Нажмите на сайте «Copy all links!» и вставьте скопированное."
 };
