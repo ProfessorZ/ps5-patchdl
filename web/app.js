@@ -48,7 +48,7 @@ const fallback = {
     source_policy: {
       official: { allow_check: true, allow_download: true, allow_install: true },
       external: { allow_check: true, allow_download: true, allow_install: true },
-      shadowmount: { allow_check: true, allow_download: false, allow_install: false },
+      shadowmount: { allow_check: true, allow_download: true, allow_install: false },
       unknown: { allow_check: true, allow_download: false, allow_install: false },
       fake: { allow_check: true, allow_download: false, allow_install: false },
     },
@@ -85,7 +85,7 @@ const fallback = {
       latest_version: "01.009.000", latest_required_fw: "12.00",
       source_type: "shadowmount", source_path: "/system_ex/app/PPSA90001_00",
       patch_storage_match: true,
-      mount_from: "/mnt/usb0/itemzflow/Shadowmounted Test Title", enabled: true, status: "blocked",
+      mount_from: "/mnt/usb0/itemzflow/Shadowmounted Test Title", enabled: true, status: "available",
     },
     {
       title_id: "PPSA03396", name: "The Last of Us Part I",
@@ -718,7 +718,7 @@ function isPs4(game) { return (game.title_id || "").startsWith("CUSA"); }
 
 function gameCategory(game) {
   const policy = sourcePolicy(game);
-  if (game.patch_title_match === false || !policy.allow_install || game.status === "blocked")
+  if (game.patch_title_match === false || !policy.allow_download || game.status === "blocked")
     return "blocked";
   if (game.downloading || game.resumable || game.downloaded || game.installing || game._jobState)
     return "updates";
@@ -784,7 +784,7 @@ function createGameCard(game) {
     }
   }
   lead.appendChild(cover);
-  if (sourcePolicy(game).allow_install) lead.appendChild(buildToggle(game));
+  if (sourcePolicy(game).allow_download) lead.appendChild(buildToggle(game));
 
   const body = document.createElement("div");
   body.className = "card-body";
@@ -947,6 +947,8 @@ function versionTrackHtml(game) {
 
 function cardNotesHtml(game) {
   const notes = [];
+  if (sourcePolicy(game).allow_download && !sourcePolicy(game).allow_install)
+    notes.push(`<div class="callout is-quiet">${escapeHtml(sourceDescription(sourceType(game)))}</div>`);
   const job = state.downloads.find((d) => d.title_id === game.title_id);
   if (job && job.state === "error" && Number(job.rc) === -3)
     notes.push(`<div class="callout is-warn">${icon("alert")}<span>${escapeHtml(noSpaceText(job.need_bytes, job.free_bytes, job.space_install))}</span></div>`);
@@ -963,7 +965,7 @@ function cardNotesHtml(game) {
 function statusPill(game) {
   if (game.installing) return `<span class="pill warn">${t("pill.installing")}</span>`;
   if (game.status === "checking") return `<span class="pill">${t("pill.checking")}</span>`;
-  if (game.status === "blocked" || !sourcePolicy(game).allow_install)
+  if (game.status === "blocked" || !sourcePolicy(game).allow_download)
     return `<span class="pill">${t("pill.notSupported")}</span>`;
   if (game.patch_title_match === false) return `<span class="pill blocked">${t("pill.titleMismatch")}</span>`;
   // the badge says "get a link first", with a link it's a normal update
@@ -2319,7 +2321,8 @@ async function guidePoll() {
     queued: () => t("guide.note.queued"),
     active: () => t("guide.note.active"),
     paused: () => t("guide.note.paused"),
-    done: () => t(state.config.install_after_download ? "guide.note.doneInstall" : "guide.note.doneManual"),
+    done: () => t(!sourcePolicy(game).allow_install ? "guide.note.doneDownload"
+      : state.config.install_after_download ? "guide.note.doneInstall" : "guide.note.doneManual"),
     error: () => t("guide.note.error"),
   }[j.state];
   const noteText = note ? note() : "";

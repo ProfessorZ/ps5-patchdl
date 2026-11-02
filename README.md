@@ -45,7 +45,7 @@ A few things it does on top of that:
 - There's a switch for a PatchDL tile on the home screen.
 - The interface is available in ten languages.
 
-PatchDL only updates games installed from disc or the PlayStation Store. It doesn't download games, and it doesn't touch system software.
+PatchDL installs updates for games installed from disc or the PlayStation Store. For ShadowMount games, it can download official updates but cannot install them into mounted images. It doesn't download base games, and it doesn't touch system software.
 
 ## Screenshots
 
@@ -94,6 +94,9 @@ Only after the console reports the new version and its installer has registered 
 
 **Do disc games work?**
 Yes. Keep the disc in the drive while the update installs. Some disc builds are older than the base the update expects. Then PatchDL asks once and installs the update as the whole game instead; your saves stay and the disc stays the license.
+
+**Do ShadowMount games work?**
+Detected ShadowMount games support update downloads, resume, and Other versions. Use Download on the game's card; completed packages stay in the configured download folder. Installation and automatic installation are not supported for mounted images, and Update all skips these games.
 
 **What if the power goes out during a download?**
 Start PatchDL again and press Resume.
